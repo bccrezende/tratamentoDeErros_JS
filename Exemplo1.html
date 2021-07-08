@@ -17,27 +17,32 @@
     <div class="container">
         <div class="row">
             <div class="col">
-
-            </div>
-            <div class="col">
-                <p>Informe um número maior que 10 e menor que 20: </p>
+                <p class="h6"> </p>
                 <div class="input-group mb-3">
-                    <input type="text" id="numero" class="form-control">
+                    <input type="text" id="numero" class="form-control"
+                        placeholder="Informe um número maior que 10 e menor que 20:" aria-label="Recipient's username"
+                        aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button onclick="verificar()" class="btn btn-outline-secondary" type="button">Verificar</button>
                     </div>
                 </div>
-                <p id="msg"></p>
-            </div>
-            <div class="col">
-            
+                <p id="msg" class="h6"></p>
             </div>
         </div>
     </div>
 
     <script language="javascript">
         function verificar() {
-
+            valor_input = document.getElementById('numero').value
+            try {
+                if (valor_input == '') { throw 'Informe um valor.' }
+            }
+            catch (erro) {
+                document.getElementById('msg').innerText = "Erro: " + erro;
+            }
+            finally {
+                console.log('Serei executado sempre')
+            }
         }
     </script>
 
